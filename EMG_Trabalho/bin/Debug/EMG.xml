@@ -1,0 +1,21 @@
+<?xml version="1.0" standalone="yes"?>
+<EMG_dataset>
+  <Ficha_x0020_de_x0020_Clientes_x003A_>
+    <Nome>Andre</Nome>
+    <Idade>1</Idade>
+    <Genero>Masculino</Genero>
+    <Peso>20</Peso>
+    <Altura>1</Altura>
+    <IMC>20</IMC>
+    <Pratica_x0020_Desporto>Sim</Pratica_x0020_Desporto>
+  </Ficha_x0020_de_x0020_Clientes_x003A_>
+  <Ficha_x0020_de_x0020_Clientes_x003A_>
+    <Nome>Jose Andre</Nome>
+    <Idade>1</Idade>
+    <Genero>Masculino</Genero>
+    <Peso>1</Peso>
+    <Altura>1</Altura>
+    <IMC>1</IMC>
+    <Pratica_x0020_Desporto>Sim</Pratica_x0020_Desporto>
+  </Ficha_x0020_de_x0020_Clientes_x003A_>
+</EMG_dataset>
