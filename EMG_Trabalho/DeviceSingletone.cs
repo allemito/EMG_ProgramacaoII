@@ -82,7 +82,7 @@ namespace EMG_Trabalho
 
                     dev.battery(10);  // set battery threshold (optional)
 
-                    dev.start(100, new int[] { 0, 1, 2, 3, 4, 5 });   // start acquisition of all channels at 1000 Hz
+                    dev.start(100, new int[] { 0 });   // start acquisition of all channels at 1000 Hz
                                                                       // NECESSARIO ESCOLHER O CANAL
                     bool ledState = false;
 
@@ -98,10 +98,7 @@ namespace EMG_Trabalho
 
                         dev.read(frames); // get 100 frames from device
                         Bitalino.Frame f = frames[0];  // get a reference to the first frame of each 100 frames block
-                        String dataStr = String.Format("{0} : {1} {2} {3} {4} ; {5} {6} {7} {8} {9} {10}",   // dump the first frame
-                                          f.seq,
-                                          f.digital[0], f.digital[1], f.digital[2], f.digital[3],
-                                          f.analog[0], f.analog[1], f.analog[2], f.analog[3], f.analog[4], f.analog[5]);
+                        String dataStr = String.Format("{0} ", f.analog[0]);
 
                         Console.WriteLine(dataStr);
 
