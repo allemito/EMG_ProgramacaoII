@@ -67,7 +67,6 @@ namespace EMG_Trabalho
                 }
             }
             else
-
             {
                 MessageBox.Show("Alerta: Não selecionou nenhum cliente. Tente novamente!");
             }
@@ -88,9 +87,9 @@ namespace EMG_Trabalho
             if (index >= 0)
             {
                 ClasseCliente cliente = ClasseCliente.lerNaBaseDados(datahelper, index);
-                FormTerapies formTerapies = new FormTerapies(client);
-                formTerapies.ShowDialog();
+                Exames exames = new Exames(cliente);
+                exames.ShowDialog();
             }
-        }
+        } 
     }
 }

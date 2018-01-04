@@ -342,7 +342,7 @@
             this.Controls.Add(this.labelNome);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "AdicionarClientes";
-            this.Text = "Adicionar Clientes";
+            this.Text = " Adicionar Clientes";
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownIdade)).EndInit();
             this.groupBoxGenero.ResumeLayout(false);
             this.groupBoxGenero.PerformLayout();

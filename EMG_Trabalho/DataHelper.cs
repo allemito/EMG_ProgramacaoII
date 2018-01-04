@@ -20,10 +20,13 @@ namespace EMG_Trabalho
         public static string CLIENTE_IMC = "IMC";
         public static string CLIENTE_DESPORTO = "Pratica Desporto";
 
-    
+        public static string DATATABLE_EXAMES = "Lista de Exames:";
+        public static string EXAME_TIPOEXAME = "Tipo de Exame:";
+
 
         DataSet dataSet;
         DataTable tableClientes;
+        DataTable tableExames;
 
         public DataTable TableClientes
         {
@@ -49,6 +52,18 @@ namespace EMG_Trabalho
                 dataSet = value;
             }
         }
+        public DataTable TableExames
+        {
+            get
+            {
+                return tableExames;
+            }
+
+            set
+            {
+                tableExames = value;
+            }
+        }
 
         String FICHEIRO = "EMG.xml";
 
@@ -65,7 +80,11 @@ namespace EMG_Trabalho
             TableClientes.Columns.Add(CLIENTE_IMC);
             TableClientes.Columns.Add(CLIENTE_DESPORTO);
 
+            TableExames = new DataTable(DATATABLE_EXAMES);
+            TableClientes.Columns.Add(EXAME_TIPOEXAME);
+
             DataSet.Tables.Add(TableClientes);
+            DataSet.Tables.Add(TableExames);
 
             Carregar(); 
         }
