@@ -13,3 +13,4 @@ C:\Users\André Pinto\Documents\Visual Studio 2015\Projects\C#\EMG_Trabalho\EMG_
 C:\Users\André Pinto\Documents\Visual Studio 2015\Projects\C#\EMG_Trabalho\EMG_Trabalho\bin\Debug\BITalino_x86.dll
 C:\Users\André Pinto\Documents\Visual Studio 2015\Projects\C#\EMG_Trabalho\EMG_Trabalho\bin\Debug\BITalino_x86.xml
 C:\Users\André Pinto\Documents\Visual Studio 2015\Projects\C#\EMG_Trabalho\EMG_Trabalho\obj\Debug\EMG_Trabalho.FazerExame.resources
+C:\Users\André Pinto\Documents\Visual Studio 2015\Projects\C#\EMG_Trabalho\EMG_Trabalho\obj\Debug\EMG_Trabalho.PainelExame.resources

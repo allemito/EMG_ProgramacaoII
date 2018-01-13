@@ -19,10 +19,12 @@ namespace EMG_Trabalho
         public static string CLIENTE_ALTURA = "Altura";
         public static string CLIENTE_IMC = "IMC";
         public static string CLIENTE_DESPORTO = "Pratica Desporto";
+        public static string CLIENTE_ID = "ID";
 
         public static string DATATABLE_EXAMES = "Lista de Exames:";
-        public static string EXAME_TIPOEXAME = "Tipo de Exame:";
-
+        public static string EXAME_EXAME_MEDIA = "Media do Exame:";
+        public static string EXAME_NOME = "Nome";
+        public static string EXAME_CLIENTE_ID = "Cliente_ID";
 
         DataSet dataSet;
         DataTable tableClientes;
@@ -79,9 +81,13 @@ namespace EMG_Trabalho
             TableClientes.Columns.Add(CLIENTE_ALTURA);
             TableClientes.Columns.Add(CLIENTE_IMC);
             TableClientes.Columns.Add(CLIENTE_DESPORTO);
+            TableClientes.Columns.Add(CLIENTE_ID);
 
             TableExames = new DataTable(DATATABLE_EXAMES);
-            TableClientes.Columns.Add(EXAME_TIPOEXAME);
+            TableExames.Columns.Add(EXAME_NOME);
+            TableExames.Columns.Add(EXAME_EXAME_MEDIA);
+            TableExames.Columns.Add(EXAME_CLIENTE_ID);
+
 
             DataSet.Tables.Add(TableClientes);
             DataSet.Tables.Add(TableExames);

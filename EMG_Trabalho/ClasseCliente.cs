@@ -19,6 +19,8 @@ namespace EMG_Trabalho
        private GenderType genero;
        private double imc; // indice de massa corporal
        private DesportoType desporto;
+       private long id;
+       List<ClasseExames> exames;
 
         public string Nome
         {
@@ -32,7 +34,6 @@ namespace EMG_Trabalho
                 nome = value;
             }
         }
-
         public decimal Idade
         {
             get
@@ -45,7 +46,6 @@ namespace EMG_Trabalho
                 idade = value;
             }
         }
-
         public double Altura
         {
             get
@@ -62,7 +62,6 @@ namespace EMG_Trabalho
                 else System.Windows.Forms.MessageBox.Show("Erro: Introduza uma altura valida");
             }
         }
-
         public float Peso
         {
             get
@@ -79,7 +78,6 @@ namespace EMG_Trabalho
                 else System.Windows.Forms.MessageBox.Show("Erro: Introduza um peso valido");
             }
         }
-
         public double Imc
         {
             get
@@ -91,7 +89,6 @@ namespace EMG_Trabalho
                 imc = value;
             }
         } 
-
         public GenderType Genero
         {
             get
@@ -104,7 +101,6 @@ namespace EMG_Trabalho
                 genero = value;
             }
         }
-
         public DesportoType Desporto
         {
             get
@@ -117,6 +113,18 @@ namespace EMG_Trabalho
                 desporto = value;
             }
         }
+        public long Id
+        {
+            get
+            {
+                return id;
+            }
+
+            set
+            {
+                id = value;
+            }
+        }
 
         public ClasseCliente(string nome, decimal idade, double altura, float peso, GenderType genero, DesportoType desporto, double imc)
         {
@@ -127,6 +135,18 @@ namespace EMG_Trabalho
             this.Genero = genero;
             this.Desporto = desporto;
             this.Imc = imc;     
+            this.Id = Utils.CurrentTimeMillis();
+        }
+        public ClasseCliente(string nome, decimal idade, double altura, float peso, GenderType genero, DesportoType desporto, double imc, long id)
+        {
+            this.Nome = nome;
+            this.Idade = idade;
+            this.Altura = altura;
+            this.Peso = peso;
+            this.Genero = genero;
+            this.Desporto = desporto;
+            this.Imc = imc;
+            this.Id = id;
         }
 
         // CRUD
@@ -143,6 +163,7 @@ namespace EMG_Trabalho
             datarow[DataHelper.CLIENTE_ALTURA] = cliente.Altura;
             datarow[DataHelper.CLIENTE_IMC] = cliente.Imc;
             datarow[DataHelper.CLIENTE_DESPORTO] = cliente.Desporto;
+            datarow[DataHelper.CLIENTE_ID] = cliente.Id;
 
             datahelper.TableClientes.Rows.Add(datarow);
             datahelper.Guardar();
@@ -162,7 +183,8 @@ namespace EMG_Trabalho
                  float.Parse((String)datarow[DataHelper.CLIENTE_PESO]),
                  parseGender((String)datarow[DataHelper.CLIENTE_GENERO]),
                  parseDesporto((String)datarow[DataHelper.CLIENTE_DESPORTO]),
-                 double.Parse((String)datarow[DataHelper.CLIENTE_IMC]));
+                 double.Parse((String)datarow[DataHelper.CLIENTE_IMC]), 
+                 long.Parse((String)datarow[DataHelper.CLIENTE_ID]));
 
             return cliente;
         }
@@ -179,6 +201,7 @@ namespace EMG_Trabalho
             datarow[DataHelper.CLIENTE_ALTURA] = cliente.Altura;
             datarow[DataHelper.CLIENTE_IMC] = cliente.Imc;
             datarow[DataHelper.CLIENTE_DESPORTO] = cliente.Desporto;
+            datarow[DataHelper.CLIENTE_ID] = cliente.Id;
 
             datahelper.Guardar();
         }
@@ -188,6 +211,49 @@ namespace EMG_Trabalho
         {
             datahelper.TableClientes.Rows.RemoveAt(indexParaRemover);
             datahelper.Guardar();
+        }
+
+        public static List<ClasseCliente> getClientesLista(DataHelper datahelper)
+        {
+
+            List<ClasseCliente> clientes = new List<ClasseCliente>();
+
+            foreach (DataRow dataRow in datahelper.TableClientes.Rows)
+            {
+
+                String nome = (String)dataRow[DataHelper.CLIENTE_NOME];
+                decimal idade = decimal.Parse((String)dataRow[DataHelper.CLIENTE_IDADE]);
+                double altura = double.Parse((String)dataRow[DataHelper.CLIENTE_ALTURA]);
+                float peso = float.Parse((String)dataRow[DataHelper.CLIENTE_PESO]);
+                GenderType genero = parseGender((String)dataRow[DataHelper.CLIENTE_GENERO]);
+                DesportoType desporto = parseDesporto((String)dataRow[DataHelper.CLIENTE_DESPORTO]);
+                double imc = double.Parse((String)dataRow[DataHelper.CLIENTE_IMC]);
+                long id = long.Parse((String)dataRow[DataHelper.CLIENTE_ID]);
+                GenderType gender = parseGender((String)dataRow[DataHelper.CLIENTE_GENERO]);
+
+                clientes.Add(new ClasseCliente(nome, idade, altura, peso, genero, desporto, imc, id));
+            }
+
+            return clientes;
+        }
+
+        public static List<ClasseExames> getExames(DataHelper datahelper, long id)
+        {
+            List<ClasseExames> exames = new List<ClasseExames>();
+            DataView dataView = datahelper.DataSet.Tables[DataHelper.DATATABLE_EXAMES].DefaultView;
+
+            dataView.RowFilter = string.Format("{0} = '{1}'", DataHelper.EXAME_CLIENTE_ID, id);
+            foreach (DataRowView drv in dataView)
+            {
+                DataRow row = drv.Row;
+                string nome = (string)row[DataHelper.EXAME_NOME];
+                long clienteId = long.Parse((string)row[DataHelper.EXAME_CLIENTE_ID]);
+                string exameMedia = (string)row[DataHelper.EXAME_EXAME_MEDIA];
+                ClasseExames exame  = new ClasseExames(nome, clienteId, exameMedia);
+                exames.Add(exame);
+            }
+            return exames;
+
         }
 
         // Converter GenderType em string para utilizar no Read
@@ -213,6 +279,19 @@ namespace EMG_Trabalho
             else
             {
                 return DesportoType.Não;
+            }
+        }
+
+        // Converter ExameType
+        public static ExameType parseExame(String strExame)
+        {
+            if (strExame.CompareTo("MusculoRelaxado") == 0)
+            {
+                return ExameType.Musculo_Relaxado;
+            }
+            else
+            {
+                return ExameType.Musculo_Exercicio;
             }
         }
     }

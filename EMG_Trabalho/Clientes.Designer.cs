@@ -106,6 +106,7 @@
             this.buttonExportar.TabIndex = 4;
             this.buttonExportar.Text = "Exportar";
             this.buttonExportar.UseVisualStyleBackColor = false;
+            this.buttonExportar.Click += new System.EventHandler(this.buttonExportar_Click);
             // 
             // buttonAtualizar
             // 

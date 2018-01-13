@@ -12,17 +12,40 @@ namespace EMG_Trabalho
 {
     public partial class Exames : Form
     {
+
+        ClasseCliente clienteParaEditar;
+        public ClasseCliente ClienteParaEditar
+        {
+            get
+            {
+                return clienteParaEditar;
+            }
+
+            set
+            {
+                clienteParaEditar = value;
+            }
+        }
         // Modelo de dados
         DataHelper datahelper;
 
         public Exames(ClasseCliente cliente)
         {
+            this.clienteParaEditar = cliente;
             InitializeComponent();
+            this.Text = cliente.Nome;
+
             datahelper = new DataHelper();
-            dataGridViewExames.DataSource = datahelper.DataSet;
-            dataGridViewExames.DataMember = DataHelper.DATATABLE_EXAMES;
+            DataView dataView = datahelper.DataSet.Tables[DataHelper.DATATABLE_EXAMES].DefaultView;
+            dataView.RowFilter = string.Format("[{0}] = '{1}'", DataHelper.EXAME_CLIENTE_ID, cliente.Id);
+            dataGridViewExames.DataSource = dataView;
             dataGridViewExames.AutoGenerateColumns = true;
             dataGridViewExames.AutoResizeColumns();
+        }
+
+        public Exames()
+        {
+            InitializeComponent();
         }
 
         // Com este buotao somos redirecionados para uma nova forma para conectar a um dispositivo de bluetooth
@@ -41,7 +64,7 @@ namespace EMG_Trabalho
                 DialogResult result = MessageBox.Show("Tem a certeza que pretende remover o Exame seleccionado?", "Alerta:", MessageBoxButtons.OKCancel);
                 if (result == DialogResult.OK)
                 {
-                    ClasseCliente.removerDaBaseDados(datahelper, indexParaRemover);
+                    ClasseExames.removerDaBaseDados(datahelper, indexParaRemover);
                 }
             }
             else
@@ -54,15 +77,17 @@ namespace EMG_Trabalho
         private void buttonAtualizar_Click(object sender, EventArgs e)
         {
             datahelper = new DataHelper();
-            dataGridViewExames.DataSource = datahelper.DataSet;
-            dataGridViewExames.DataMember = DataHelper.DATATABLE_EXAMES;
+            DataView dataView = datahelper.DataSet.Tables[DataHelper.DATATABLE_EXAMES].DefaultView;
+            dataView.RowFilter = string.Format("[{0}] = '{1}'", DataHelper.EXAME_CLIENTE_ID, clienteParaEditar.Id);
+            dataGridViewExames.DataSource = dataView;
             dataGridViewExames.AutoGenerateColumns = true;
+            dataGridViewExames.AutoResizeColumns();
         }
 
         private void buttonNovoExame_Click(object sender, EventArgs e)
         {
-            FazerExame novoExame = new FazerExame();
-            novoExame.ShowDialog();
+                FazerExame novoExame = new FazerExame(clienteParaEditar);
+                novoExame.ShowDialog();
         }
     }
 }

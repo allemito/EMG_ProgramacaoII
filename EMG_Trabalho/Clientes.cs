@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -90,6 +91,44 @@ namespace EMG_Trabalho
                 Exames exames = new Exames(cliente);
                 exames.ShowDialog();
             }
-        } 
+        }
+
+        // Com este botao coseguimos exportar os dados dos clientes para o formato SPSS (.sav)
+        private void buttonExportar_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog sv = new SaveFileDialog();
+            sv.FileName = "*";
+            sv.DefaultExt = "sav";
+            sv.ValidateNames = true;
+
+            sv.Filter = "SAV File (.sav)|*.sav";
+            ;
+            if (sv.ShowDialog() == DialogResult.OK)
+            {
+                Console.WriteLine(sv.FileName);
+                StreamWriter sw = new StreamWriter(sv.FileName);
+                List<ClasseCliente> clientes = ClasseCliente.getClientesLista(datahelper);
+                foreach (ClasseCliente c in clientes)
+                {
+                    Console.WriteLine(c.Id);
+                    foreach (ClasseExames m in ClasseCliente.getExames(datahelper, c.Id))
+                    {
+                        sw.WriteLine(c.Nome + "; " +
+                            c.Idade + "; " +
+                            c.Altura + "; " +
+                            c.Peso + "; " +
+                            c.Genero + "; " +
+                            c.Desporto + "; " +
+                            c.Imc + "; " +
+                            m.Nome + "; " +
+                            m.MediaExame + "; "
+                            );
+                    }
+                }
+                sw.Flush();
+                sw.Close();
+
+            }
+        }
     }
 }

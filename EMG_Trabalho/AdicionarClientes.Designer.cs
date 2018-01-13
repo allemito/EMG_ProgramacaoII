@@ -196,6 +196,7 @@
             this.textBoxIMC.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxIMC.Location = new System.Drawing.Point(228, 469);
             this.textBoxIMC.Name = "textBoxIMC";
+            this.textBoxIMC.ReadOnly = true;
             this.textBoxIMC.Size = new System.Drawing.Size(167, 38);
             this.textBoxIMC.TabIndex = 20;
             this.toolTipIMC.SetToolTip(this.textBoxIMC, "Alerta:\r\nAltura em Metros (m).\r\nApresente 2 casas decimais separadas por uma virg" +
@@ -208,6 +209,7 @@
             this.textBoxIMCResultado.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxIMCResultado.Location = new System.Drawing.Point(228, 513);
             this.textBoxIMCResultado.Name = "textBoxIMCResultado";
+            this.textBoxIMCResultado.ReadOnly = true;
             this.textBoxIMCResultado.Size = new System.Drawing.Size(167, 38);
             this.textBoxIMCResultado.TabIndex = 21;
             this.toolTipIMC.SetToolTip(this.textBoxIMCResultado, "Alerta:\r\nAltura em Metros (m).\r\nApresente 2 casas decimais separadas por uma virg" +
