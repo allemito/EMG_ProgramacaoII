@@ -57,6 +57,7 @@ namespace EMG_Trabalho
             int index = listBoxDevices.SelectedIndex;
             DeviceSingletone.Instance.Device = devices[index]; // gravamos no lugar onde está o index
             this.Close();
+            
         }
     }
 }

@@ -114,8 +114,6 @@ namespace EMG_Trabalho
                 listBoxExame.Items.Add(valoresExame[x]);
             }
             converterValoresEmMedia();
-            PainelExame novoExame = new PainelExame();
-            novoExame.ShowDialog();
         }
 
        

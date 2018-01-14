@@ -35,6 +35,8 @@ namespace EMG_Trabalho
             InitializeComponent();
             this.Text = cliente.Nome;
 
+            buttonNovoExame.Enabled = false;
+
             datahelper = new DataHelper();
             DataView dataView = datahelper.DataSet.Tables[DataHelper.DATATABLE_EXAMES].DefaultView;
             dataView.RowFilter = string.Format("[{0}] = '{1}'", DataHelper.EXAME_CLIENTE_ID, cliente.Id);
@@ -51,13 +53,15 @@ namespace EMG_Trabalho
         // Com este buotao somos redirecionados para uma nova forma para conectar a um dispositivo de bluetooth
         private async void buttonEmparelhar_Click(object sender, EventArgs e)
         {
+            buttonNovoExame.Enabled = true;
             EmparelharBitalino procurarBitalino = new EmparelharBitalino();
-            procurarBitalino.ShowDialog(); 
+            procurarBitalino.ShowDialog();
         }
 
         // Com este botao é possivel remover um exame selecionado na dataGridViewExames
         private void buttonApagarExame_Click(object sender, EventArgs e)
         {
+            
             int indexParaRemover = dataGridViewExames.CurrentCell.RowIndex;
             if (indexParaRemover >= 0)
             {
@@ -86,8 +90,8 @@ namespace EMG_Trabalho
 
         private void buttonNovoExame_Click(object sender, EventArgs e)
         {
-                FazerExame novoExame = new FazerExame(clienteParaEditar);
-                novoExame.ShowDialog();
+            FazerExame novoExame = new FazerExame(clienteParaEditar);
+            novoExame.ShowDialog();
         }
     }
 }

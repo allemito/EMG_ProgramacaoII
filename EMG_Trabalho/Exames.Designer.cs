@@ -125,8 +125,8 @@
         #endregion
         public System.Windows.Forms.DataGridView dataGridViewExames;
         private System.Windows.Forms.Button buttonApagarExame;
-        private System.Windows.Forms.Button buttonNovoExame;
         private System.Windows.Forms.Button buttonEmparelhar;
         private System.Windows.Forms.Button buttonAtualizar;
+        public System.Windows.Forms.Button buttonNovoExame;
     }
 }

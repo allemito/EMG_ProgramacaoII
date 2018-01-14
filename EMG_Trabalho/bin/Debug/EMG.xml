@@ -1,35 +1,15 @@
 <?xml version="1.0" standalone="yes"?>
 <EMG_dataset>
   <Ficha_x0020_de_x0020_Clientes_x003A_>
-    <Nome>Andre</Nome>
-    <Idade>10</Idade>
+    <Nome>Jose Andre Gomes Pinto</Nome>
+    <Idade>20</Idade>
     <Genero>Masculino</Genero>
-    <Peso>200</Peso>
-    <Altura>3</Altura>
-    <IMC>22,22</IMC>
+    <Peso>69</Peso>
+    <Altura>1,72</Altura>
+    <IMC>23,32</IMC>
     <Pratica_x0020_Desporto>Não</Pratica_x0020_Desporto>
-    <ID>1515857670685</ID>
+    <ID>1515940344178</ID>
   </Ficha_x0020_de_x0020_Clientes_x003A_>
-  <Lista_x0020_de_x0020_Exames_x003A_>
-    <Nome>345</Nome>
-    <Cliente_ID>1515801378771</Cliente_ID>
-  </Lista_x0020_de_x0020_Exames_x003A_>
-  <Lista_x0020_de_x0020_Exames_x003A_>
-    <Nome>Musculo Relaxado</Nome>
-    <Cliente_ID>1515802968770</Cliente_ID>
-  </Lista_x0020_de_x0020_Exames_x003A_>
-  <Lista_x0020_de_x0020_Exames_x003A_>
-    <Nome />
-    <Cliente_ID>1515802968770</Cliente_ID>
-  </Lista_x0020_de_x0020_Exames_x003A_>
-  <Lista_x0020_de_x0020_Exames_x003A_>
-    <Nome>344</Nome>
-    <Cliente_ID>1515802968770</Cliente_ID>
-  </Lista_x0020_de_x0020_Exames_x003A_>
-  <Lista_x0020_de_x0020_Exames_x003A_>
-    <Nome>Musculo em Exercicio</Nome>
-    <Cliente_ID>1515802968770</Cliente_ID>
-  </Lista_x0020_de_x0020_Exames_x003A_>
   <Lista_x0020_de_x0020_Exames_x003A_>
     <Nome>Musculo em Exercicio</Nome>
     <Cliente_ID>1515849134000</Cliente_ID>
@@ -43,5 +23,25 @@
     <Nome>233</Nome>
     <Media_x0020_do_x0020_Exame_x003A_>1</Media_x0020_do_x0020_Exame_x003A_>
     <Cliente_ID>1515850410642</Cliente_ID>
+  </Lista_x0020_de_x0020_Exames_x003A_>
+  <Lista_x0020_de_x0020_Exames_x003A_>
+    <Nome>rt</Nome>
+    <Media_x0020_do_x0020_Exame_x003A_>41,5</Media_x0020_do_x0020_Exame_x003A_>
+    <Cliente_ID>1515857670685</Cliente_ID>
+  </Lista_x0020_de_x0020_Exames_x003A_>
+  <Lista_x0020_de_x0020_Exames_x003A_>
+    <Nome>Relaxado</Nome>
+    <Media_x0020_do_x0020_Exame_x003A_>521,310344827586</Media_x0020_do_x0020_Exame_x003A_>
+    <Cliente_ID>1515857670685</Cliente_ID>
+  </Lista_x0020_de_x0020_Exames_x003A_>
+  <Lista_x0020_de_x0020_Exames_x003A_>
+    <Nome />
+    <Media_x0020_do_x0020_Exame_x003A_>524,214285714286</Media_x0020_do_x0020_Exame_x003A_>
+    <Cliente_ID>1515857670685</Cliente_ID>
+  </Lista_x0020_de_x0020_Exames_x003A_>
+  <Lista_x0020_de_x0020_Exames_x003A_>
+    <Nome>Musculo Relaxado</Nome>
+    <Media_x0020_do_x0020_Exame_x003A_>519,111111111111</Media_x0020_do_x0020_Exame_x003A_>
+    <Cliente_ID>1515940344178</Cliente_ID>
   </Lista_x0020_de_x0020_Exames_x003A_>
 </EMG_dataset>

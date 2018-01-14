@@ -35,7 +35,7 @@
             this.textBoxTipoExame = new System.Windows.Forms.TextBox();
             this.buttonGravar = new System.Windows.Forms.Button();
             this.labelTipoExame = new System.Windows.Forms.Label();
-            this.buttonVerExame = new System.Windows.Forms.Button();
+            this.buttonCalcularExame = new System.Windows.Forms.Button();
             this.listBoxExame = new System.Windows.Forms.ListBox();
             this.textBoxMedia = new System.Windows.Forms.TextBox();
             this.labelMedia = new System.Windows.Forms.Label();
@@ -44,7 +44,7 @@
             // buttonIniciar
             // 
             this.buttonIniciar.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.buttonIniciar.Location = new System.Drawing.Point(364, 171);
+            this.buttonIniciar.Location = new System.Drawing.Point(43, 181);
             this.buttonIniciar.Name = "buttonIniciar";
             this.buttonIniciar.Size = new System.Drawing.Size(119, 42);
             this.buttonIniciar.TabIndex = 0;
@@ -55,10 +55,10 @@
             // textBoxExame
             // 
             this.textBoxExame.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.textBoxExame.Location = new System.Drawing.Point(81, 229);
+            this.textBoxExame.Location = new System.Drawing.Point(43, 229);
             this.textBoxExame.Multiline = true;
             this.textBoxExame.Name = "textBoxExame";
-            this.textBoxExame.Size = new System.Drawing.Size(402, 354);
+            this.textBoxExame.Size = new System.Drawing.Size(555, 354);
             this.textBoxExame.TabIndex = 1;
             // 
             // buttonParar
@@ -66,7 +66,7 @@
             this.buttonParar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonParar.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.buttonParar.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.buttonParar.Location = new System.Drawing.Point(70, 181);
+            this.buttonParar.Location = new System.Drawing.Point(168, 181);
             this.buttonParar.Name = "buttonParar";
             this.buttonParar.Size = new System.Drawing.Size(119, 42);
             this.buttonParar.TabIndex = 4;
@@ -105,25 +105,25 @@
             this.labelTipoExame.TabIndex = 7;
             this.labelTipoExame.Text = "Tipo de Exame:";
             // 
-            // buttonVerExame
+            // buttonCalcularExame
             // 
-            this.buttonVerExame.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.buttonVerExame.Location = new System.Drawing.Point(525, 171);
-            this.buttonVerExame.Name = "buttonVerExame";
-            this.buttonVerExame.Size = new System.Drawing.Size(191, 42);
-            this.buttonVerExame.TabIndex = 8;
-            this.buttonVerExame.Text = "Ver exame";
-            this.buttonVerExame.UseVisualStyleBackColor = false;
-            this.buttonVerExame.Click += new System.EventHandler(this.buttonVerExame_Click);
+            this.buttonCalcularExame.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.buttonCalcularExame.Location = new System.Drawing.Point(293, 181);
+            this.buttonCalcularExame.Name = "buttonCalcularExame";
+            this.buttonCalcularExame.Size = new System.Drawing.Size(305, 42);
+            this.buttonCalcularExame.TabIndex = 8;
+            this.buttonCalcularExame.Text = "Calcular Média do Exame";
+            this.buttonCalcularExame.UseVisualStyleBackColor = false;
+            this.buttonCalcularExame.Click += new System.EventHandler(this.buttonVerExame_Click);
             // 
             // listBoxExame
             // 
             this.listBoxExame.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.listBoxExame.FormattingEnabled = true;
             this.listBoxExame.ItemHeight = 25;
-            this.listBoxExame.Location = new System.Drawing.Point(525, 229);
+            this.listBoxExame.Location = new System.Drawing.Point(681, 444);
             this.listBoxExame.Name = "listBoxExame";
-            this.listBoxExame.Size = new System.Drawing.Size(191, 354);
+            this.listBoxExame.Size = new System.Drawing.Size(134, 104);
             this.listBoxExame.TabIndex = 9;
             this.listBoxExame.Visible = false;
             // 
@@ -158,7 +158,7 @@
             this.Controls.Add(this.labelMedia);
             this.Controls.Add(this.textBoxMedia);
             this.Controls.Add(this.listBoxExame);
-            this.Controls.Add(this.buttonVerExame);
+            this.Controls.Add(this.buttonCalcularExame);
             this.Controls.Add(this.labelTipoExame);
             this.Controls.Add(this.buttonGravar);
             this.Controls.Add(this.textBoxTipoExame);
@@ -181,7 +181,7 @@
         private System.Windows.Forms.TextBox textBoxTipoExame;
         private System.Windows.Forms.Button buttonGravar;
         private System.Windows.Forms.Label labelTipoExame;
-        private System.Windows.Forms.Button buttonVerExame;
+        private System.Windows.Forms.Button buttonCalcularExame;
         public System.Windows.Forms.ListBox listBoxExame;
         private System.Windows.Forms.TextBox textBoxMedia;
         private System.Windows.Forms.Label labelMedia;

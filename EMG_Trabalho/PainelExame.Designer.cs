@@ -48,8 +48,9 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(827, 611);
             this.Controls.Add(this.panelExame);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "PainelExame";
-            this.Text = "PainelExame";
+            this.Text = " Visualização do Exame";
             this.ResumeLayout(false);
 
         }
