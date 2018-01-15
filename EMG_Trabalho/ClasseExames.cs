@@ -89,9 +89,16 @@ namespace EMG_Trabalho
             datahelper.Guardar();
         }
 
-        public static void removerDaBaseDados(DataHelper datahelper, int indexParaRemover)
+        public static void removerDaBaseDados(DataHelper datahelper, long id)
         {
-            datahelper.TableExames.Rows.RemoveAt(indexParaRemover);
+            foreach (DataRow dr in datahelper.TableExames.Rows)
+            {
+                if (id == long.Parse((String)dr[DataHelper.EXAME_CLIENTE_ID]))
+                {
+                    datahelper.TableExames.Rows.Remove(dr);
+                    return;
+                }
+            }
             datahelper.Guardar();
         }
     }

@@ -68,7 +68,8 @@ namespace EMG_Trabalho
                 DialogResult result = MessageBox.Show("Tem a certeza que pretende remover o Exame seleccionado?", "Alerta:", MessageBoxButtons.OKCancel);
                 if (result == DialogResult.OK)
                 {
-                    ClasseExames.removerDaBaseDados(datahelper, indexParaRemover);
+                    long id = long.Parse((string)dataGridViewExames.CurrentRow.Cells["Cliente_ID"].Value);
+                    ClasseExames.removerDaBaseDados(datahelper, id);
                 }
             }
             else
